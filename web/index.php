@@ -1,14 +1,20 @@
 <?php
 
-require_once '../vendor/autoload.php'; // Loads the library
+require('../vendor/autoload.php');
 use Twilio\Rest\Client;
 
-$account_sid = 'ACa4f3cd8fc3f81e9affc4990d28142e80';
-$auth_token = '30030ba27276e7fbe2fa41e2b390f22d';
-$client = new Client($account_sid, $auth_token);
+$sid = 'ACa4f3cd8fc3f81e9affc4990d28142e80';
+$token = '30030ba27276e7fbe2fa41e2b390f22d';
+$client = new Client($sid, $token);
 
-$messages = $client->accounts("ACa4f3cd8fc3f81e9affc4990d28142e80")
-  ->messages->create("+19172445030", array(
-        'From' => "+19172677334",
-        'Body' => "Hello from Victor Vargas CS 643 Fall 2017",
-  ));
+// Use the client to do fun stuff like send text messages!
+$client->messages->create(
+    // the number you'd like to send the message to
+    '+19172445030',
+    array(
+        // A Twilio phone number you purchased at twilio.com/console
+        'from' => '+19172677334',
+        // the body of the text message you'd like to send
+        'body' => 'Hello from Victor Vargas CS 643 Fall 2017'
+    )
+);
