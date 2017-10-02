@@ -1,25 +1,19 @@
 <?php
 
 require('../vendor/autoload.php');
+use Twilio\Rest\Client;
 
-$app = new Silex\Application();
-$app['debug'] = true;
+$sid = 'ACa4f3cd8fc3f81e9affc4990d28142e80';
+$token = '30030ba27276e7fbe2fa41e2b390f22d';
+$client = new Client($sid, $token);
 
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
-
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
-
-// Our web handlers
-
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
-});
-
-$app->run();
+$client->messages->create(
+    // the number you'd like to send the message to
+    '+19172445030',
+    array(
+        // A Twilio phone number you purchased at twilio.com/console
+        'from' => '+19172677334',
+        // the body of the text message you'd like to send
+        'body' => 'Hello from Victor Vargas CS 643 Fall 2017'
+    )
+);
