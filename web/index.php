@@ -18,3 +18,5 @@ $client->messages->create(
         'body' => 'Hello from Victor Vargas CS 643 Fall 2017'
     )
 );
+
+echo "message sent";
