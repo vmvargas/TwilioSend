@@ -1,5 +1,5 @@
 # Mobile Innovations for Global Challenges
-# Twilio Project
+# Twilio Send SMS
 
 A barebones PHP app that sends an SMS via Twilio API.
 

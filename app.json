@@ -1,6 +1,6 @@
 {
-  "name": "Start on Heroku: PHP",
-  "description": "A barebones PHP app that makes use of the Silex web framework",
-  "repository": "https://github.com/heroku/php-getting-started",
+  "name": "Twilio Send SMS via PHP",
+  "description": "A barebones PHP app that sends an SMS via Twilio API.",
+  "repository": "https://github.com/vmvargas/twiliosend",
   "addons": []
 }
